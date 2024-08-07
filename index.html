@@ -8,13 +8,13 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="text-center mb-4"> GST Calculator</h1>
-        <div class="calculator p-4">
-            <div class="form-group">
+        <h1> GST Calculator</h1>
+        <div class="calculator">
+            <div class="form">
                 <label for="amount">Amount</label>
                 <input type="number" class="form-control" id="amount" placeholder="Enter amount">
             </div>
-            <div class="form-group">
+            <div class="form">
                 <label for="gstType">GST Type</label>
                 <select class="form-control" id="gstType">
                     <option value="5">5%</option>
@@ -23,7 +23,7 @@
                     <option value="28">28%</option>
                 </select>
             </div>
-            <div class="form-group">
+            <div class="form">
                 <label for="taxType">Tax</label>
                 <select class="form-control" id="taxType">
                     <option value="exclusive">Exclusive</option>
@@ -36,6 +36,24 @@
                 <p id="gstAmount" class="text-success"></p>
                 <p id="totalAmount" class="text-success"></p>
             </div>
+        </div>
+        <div class="history">
+            <h2>Calculation History</h2>
+            <table id="historyTable">
+                <thead>
+                    <tr>
+                        <th>SR No</th>
+                        <th>Amount</th>
+                        <th>GST Type (%)</th>
+                        <th>Tax Type</th>
+                        <th>GST Amount</th>
+                        <th>Total Amount</th>
+                    </tr>
+                </thead>
+                <tbody id="historyList">
+                    <!-- History entries will be added here -->
+                </tbody>
+            </table>
         </div>
 
         <div class="info-section mt-5">

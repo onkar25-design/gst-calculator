@@ -16,7 +16,8 @@ body {
 
 h1 {
     text-align: center;
-    color: #333;
+    color:#218838;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .calculator {
@@ -24,6 +25,7 @@ h1 {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 
 .input-section, .button-section, .output-section {
@@ -58,6 +60,32 @@ button:hover {
     background-color: #218838;
 }
 
+.history {
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+
+.history h2 {
+    margin: 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f4f4f4;
+}
 p {
     font-size: 18px;
     color: #333;
@@ -118,7 +146,7 @@ p {
     font-size: 1.rem;
 }
 
-.calculator .form-group {
+.calculator .form {
     margin-bottom: 15px;
 }
 

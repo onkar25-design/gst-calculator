@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GST Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mb-4"> GST Calculator</h1>
+        <div class="calculator p-4">
+            <div class="form-group">
+                <label for="amount">Amount</label>
+                <input type="number" class="form-control" id="amount" placeholder="Enter amount">
+            </div>
+            <div class="form-group">
+                <label for="gstType">GST Type</label>
+                <select class="form-control" id="gstType">
+                    <option value="5">5%</option>
+                    <option value="12">12%</option>
+                    <option value="18">18%</option>
+                    <option value="28">28%</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="taxType">Tax</label>
+                <select class="form-control" id="taxType">
+                    <option value="exclusive">Exclusive</option>
+                    <option value="inclusive">Inclusive</option>
+                </select>
+            </div>
+            <button class="btn btn-success btn-block" onclick="calculateGST()">Calculate GST</button>
+            <div class="output mt-4">
+                <p id="actualAmount" class="text-success"></p>
+                <p id="gstAmount" class="text-success"></p>
+                <p id="totalAmount" class="text-success"></p>
+            </div>
+        </div>
+
+        <div class="info-section mt-5">
+            <h3 class="mt-4">How can you calculate GST with this tool?</h3>
+            <div class="calculation-steps p-3 bg-light border rounded">
+                <ol>
+                    <li>Enter the price of the goods or services in the Amount field.</li>
+                    <li>Enter the percentage of GST, or the slab that the product comes under, in the GST % field.</li>
+                    <li>Choose if the price that you entered is inclusive or exclusive of tax in the Tax field.</li>
+                </ol>
+                <p>If the price you've entered is inclusive of tax, the tool automatically calculates, and displays the original price of the goods or service after subtracting the GST.</p>
+                <p>If the price you've entered is exclusive of tax, the tool automatically calculates, and displays the gross price after adding the GST.</p>
+            </div>
+            <h2 class="text-center">GST - Goods and Services Tax</h2>
+            <p class="text-center">GST is levied on goods and services and has replaced other indirect taxes that were in effect before it came into use.</p>
+            <h3 class="mt-4">There are four types of GST active in India. They are:</h3>
+            <div class="gst-types d-flex flex-wrap">
+                <div class="gst-type p-3 m-2 bg-light border rounded">
+                    <h4 class="text-primary">CGST</h4>
+                    <p>Central Goods and Services Tax, or CGST is collected by the central government for intra-state supply of goods and services and is governed by the CGST act.</p>
+                </div>
+                <div class="gst-type p-3 m-2 bg-light border rounded">
+                    <h4 class="text-primary">SGST</h4>
+                    <p>State Goods and Services Tax, or SGST is collected by the state government for intra-state supply of goods and services and is governed by the SGST act.</p>
+                </div>
+                <div class="gst-type p-3 m-2 bg-light border rounded">
+                    <h4 class="text-primary">IGST</h4>
+                    <p>Integrated Goods and Services Tax, or IGST is collected by the central government on inter-state supply of goods and services as well as imports.</p>
+                </div>
+                <div class="gst-type p-3 m-2 bg-light border rounded">
+                    <h4 class="text-primary">UTGST</h4>
+                    <p>Union Territory Goods and Services Tax, or UTGST is applicable on supply of goods or services that take place in any of the seven union territories in India.</p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -131,6 +131,7 @@ h3 {
     border: 1px solid #ddd;
     border-radius: 5px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+    margin-bottom: 50px;
 }
 
 .calculation-steps ol {

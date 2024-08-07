@@ -193,18 +193,18 @@ h3 {
 .result-item {
     text-align: center;
     margin: 0 10px;
-    max-width: 300px; /* Limit the width */
-    overflow: hidden; /* Hide overflowing content */
-    white-space: nowrap; /* Prevent text from wrapping */
-    text-overflow: ellipsis; /* Display ellipses for overflow */
+    max-width: 300px; 
+    overflow: hidden; 
+    white-space: nowrap; 
+    text-overflow: ellipsis; 
 }
 
 .result-item p {
     margin: 10px;
     font-size: 1.5rem;
-    overflow: hidden; /* Hide overflowing content */
-    white-space: nowrap; /* Prevent text from wrapping */
-    text-overflow: ellipsis; /* Display ellipses for overflow */
+    overflow: hidden; 
+    white-space: nowrap; 
+    text-overflow: ellipsis; 
 }
 
 .result-item small {
@@ -213,4 +213,23 @@ h3 {
     font-size: 1rem;
     color: #28a745;
     font-weight: bold;
+}
+
+@media (max-width: 600px) {
+    .output {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .result-item {
+        max-width: none;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .result-item p, .result-item small {
+        white-space: normal;
+        overflow: visible;
+        text-overflow: clip;
+    }
 }

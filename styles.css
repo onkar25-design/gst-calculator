@@ -52,6 +52,17 @@ input, select {
 }
 
 button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: red;
+  color: white;
+
+   
+}
+
+.btn{
     width: 100%;
     padding: 10px;
     background-color: #28a745;
@@ -60,6 +71,7 @@ button {
     border-radius: 5px;
    
 }
+
 
 button:hover {
     background-color: #218838;
@@ -157,6 +169,7 @@ h3 {
     box-sizing: border-box;
     font-size: 16px;
     border: 1px solid #ccc;
+    box-shadow: 0 0 50px rgba(143, 24, 24, 0.05);
     border-radius: 5px;
 }
 
@@ -168,4 +181,29 @@ h3 {
     max-width: 100%;
     overflow-x: auto; 
     margin-bottom: 20px;
+}
+
+.output {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    margin-top: 20px;
+}
+
+.result-item {
+    text-align: center;
+    margin: 0 10px;
+}
+
+.result-item p {
+    margin: 10px;
+    font-size: 1.5rem;
+}
+
+.result-item small {
+    display: block;
+    margin-top: 15px;
+    font-size: 1rem;
+    color: #28a745;
+    font-weight: bold;
 }

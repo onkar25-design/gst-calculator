@@ -27,18 +27,16 @@
             <div class="form">
                 <label for="taxType">Tax</label>
                 <select class="form-control" id="taxType">
-                    <option value="exclusive">Exclusive</option>
-                    <option value="inclusive">Inclusive</option>
+                    <option value="exclusive">Without GST</option>
+                    <option value="inclusive">With GST</option>
                 </select>
             </div>
             <button class="btn" onclick="calculateGST()">Calculate GST</button>
-            <div class="output">
-                <p id="actualAmount" class="text-success"></p>
-                <p id="gstAmount" class="text-success"></p>
-                <p id="totalAmount" class="text-success"></p>
+            <div class="output" id="result">
+                
             </div>
         </div>
-        <div class="gst-type">
+        <div>
             <h2>History</h2>
             <div class="table-container">
                 <table >
@@ -59,13 +57,12 @@
                     </tbody>
                 </table>
             </div>
-        <tbody id="historyList">
-            
-        </tbody>
-        </table>
+     </div>
+       
+       
         <hr>
 
-        <div class="info-section mt-5">
+        <div class="info-section">
             <h3>How can you calculate GST with this tool?</h3>
             <div class="calculation-steps">
                 <ol>
@@ -76,7 +73,9 @@
                 <p>If the price you've entered is inclusive of tax, the tool automatically calculates, and displays the original price of the goods or service after subtracting the GST.</p>
                 <p>If the price you've entered is exclusive of tax, the tool automatically calculates, and displays the gross price after adding the GST.</p>
             </div>
+
             <hr>
+
             <h2>GST - Goods and Services Tax</h2>
             <p class="text-center">GST was implemented mainly to bring about uniformity in tax collection. In the GST regime, tax is collected cumulatively at the end stage of production of goods or services. There are five slabs to collect GST that are 5%, 12%, 18% and 28%, and different goods and services fall under different tax slabs. Additionally, there are goods that do not attract any GST.</p>
             <h3>There are four types of GST active in India. They are:</h3>

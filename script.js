@@ -41,10 +41,10 @@ function calculateGST() {
         </div>
     `;
 
-    addToHistory(serialNumber++, amount, gstType, taxType, gstAmount, totalAmount);
+    addToHistory(serialNumber++, amount, gstType, taxType, actualAmount, gstAmount, totalAmount);
 }
 
-function addToHistory(srNo, amount, gstType, taxType, gstAmount, totalAmount) {
+function addToHistory(srNo, amount, gstType, taxType, actualAmount, gstAmount, totalAmount) {
     const historyList = document.getElementById('historyList');
 
     const row = document.createElement('tr');
@@ -53,8 +53,8 @@ function addToHistory(srNo, amount, gstType, taxType, gstAmount, totalAmount) {
         <td>${formatNumber(amount.toFixed(2))}</td>
         <td>${gstType}</td>
         <td>${taxType.charAt(0).toUpperCase() + taxType.slice(1)}</td>
+        <td>${formatNumber(actualAmount.toFixed(2))}</td>
         <td>${formatNumber(gstAmount.toFixed(2))}</td>
-        <td>${formatNumber(totalAmount.toFixed(2))}</td>
         <td>${formatNumber(totalAmount.toFixed(2))}</td>
         <td><button onclick="deleteRow(this)">Delete</button></td>
 

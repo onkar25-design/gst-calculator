@@ -193,11 +193,18 @@ h3 {
 .result-item {
     text-align: center;
     margin: 0 10px;
+    max-width: 300px; /* Limit the width */
+    overflow: hidden; /* Hide overflowing content */
+    white-space: nowrap; /* Prevent text from wrapping */
+    text-overflow: ellipsis; /* Display ellipses for overflow */
 }
 
 .result-item p {
     margin: 10px;
     font-size: 1.5rem;
+    overflow: hidden; /* Hide overflowing content */
+    white-space: nowrap; /* Prevent text from wrapping */
+    text-overflow: ellipsis; /* Display ellipses for overflow */
 }
 
 .result-item small {

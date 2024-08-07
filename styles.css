@@ -9,7 +9,7 @@ body {
     max-width: 800px;
     margin: 50px auto;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.9); /* White background with some transparency */
+    background-color: rgba(255, 255, 255, 0.9); 
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -157,4 +157,13 @@ h3 {
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 4px;
+}
+
+.highlight {
+    background-color: lightgreen; 
+}
+
+.table-container {
+    max-width: 100%;
+    overflow-x: auto; 
 }

@@ -24,6 +24,31 @@ function calculateGST() {
     addToHistory(serialNumber++, amount, gstType, taxType, actualAmount, gstAmount, totalAmount);
 }
 
+function addCustomRow() {
+    const amount = parseFloat(prompt("Enter Amount:"));
+    const gstType = parseFloat(prompt("Enter GST Type (%):"));
+    const taxType = prompt("Enter Tax Type (inclusive/exclusive):");
+
+    if (!amount || !gstType || (taxType !== 'inclusive' && taxType !== 'exclusive')) {
+        alert("Invalid input. Please try again.");
+        return;
+    }
+
+    let gstAmount, totalAmount, actualAmount;
+
+    if (taxType === 'inclusive') {
+        actualAmount = amount / (1 + (gstType / 100));
+        gstAmount = amount - actualAmount;
+        totalAmount = amount;
+    } else {
+        gstAmount = amount * (gstType / 100);
+        totalAmount = amount + gstAmount;
+        actualAmount = amount;
+    }
+
+    addToHistory(serialNumber++, amount, gstType, taxType, actualAmount, gstAmount, totalAmount);
+}
+
 function addToHistory(srNo, amount, gstType, taxType, actualAmount, gstAmount, totalAmount) {
     const historyList = document.getElementById('historyList');
 
@@ -36,9 +61,29 @@ function addToHistory(srNo, amount, gstType, taxType, actualAmount, gstAmount, t
         <td>${formatNumber(actualAmount.toFixed(2))}</td>
         <td>${formatNumber(gstAmount.toFixed(2))}</td>
         <td>${formatNumber(totalAmount.toFixed(2))}</td>
+        <td><button onclick="deleteRow(this)">Delete</button></td>
     `;
 
+   
+    row.addEventListener('click', function() {
+        row.classList.toggle('highlight');
+    });
+
     historyList.appendChild(row);
+}
+
+function deleteRow(button) {
+    const row = button.parentNode.parentNode;
+    row.parentNode.removeChild(row);
+    updateSerialNumbers();
+}
+
+function updateSerialNumbers() {
+    const rows = document.getElementById('historyList').getElementsByTagName('tr');
+    for (let i = 0; i < rows.length; i++) {
+        rows[i].cells[0].textContent = i + 1;
+    }
+    serialNumber = rows.length + 1;
 }
 
 function formatNumber(num) {

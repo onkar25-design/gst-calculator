@@ -24,31 +24,6 @@ function calculateGST() {
     addToHistory(serialNumber++, amount, gstType, taxType, actualAmount, gstAmount, totalAmount);
 }
 
-function addCustomRow() {
-    const amount = parseFloat(prompt("Enter Amount:"));
-    const gstType = parseFloat(prompt("Enter GST Type (%):"));
-    const taxType = prompt("Enter Tax Type (inclusive/exclusive):");
-
-    if (!amount || !gstType || (taxType !== 'inclusive' && taxType !== 'exclusive')) {
-        alert("Invalid input. Please try again.");
-        return;
-    }
-
-    let gstAmount, totalAmount, actualAmount;
-
-    if (taxType === 'inclusive') {
-        actualAmount = amount / (1 + (gstType / 100));
-        gstAmount = amount - actualAmount;
-        totalAmount = amount;
-    } else {
-        gstAmount = amount * (gstType / 100);
-        totalAmount = amount + gstAmount;
-        actualAmount = amount;
-    }
-
-    addToHistory(serialNumber++, amount, gstType, taxType, actualAmount, gstAmount, totalAmount);
-}
-
 function addToHistory(srNo, amount, gstType, taxType, actualAmount, gstAmount, totalAmount) {
     const historyList = document.getElementById('historyList');
 

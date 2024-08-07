@@ -1,6 +1,6 @@
 body {
-    font-family: 'Arial', sans-serif;
     background: url('background.webp') no-repeat center center fixed;
+    font-family:Arial, Helvetica, sans-serif;
     background-size: cover;
     margin: 0;
     padding: 0;
@@ -11,12 +11,11 @@ body {
     margin: 50px auto;
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.9); 
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;   
 }
 
 .calculator {
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -33,17 +32,13 @@ h1 {
 .subheading {
     font-size: 1.1em;
     color: #555;
-    margin-top: -10px;
+    margin-top: 10px;
     margin-bottom: 20px;
     text-align: center;
 }
 
-.input-section, .button-section, .output-section {
-    margin: 10px 0;
-}
-
 label {
-    display: block;
+    display:block;
     margin-bottom: 5px;
     color: #000000;
 }
@@ -63,7 +58,7 @@ button {
     color: white;
     border: none;
     border-radius: 5px;
-    cursor: pointer;
+   
 }
 
 button:hover {
@@ -135,7 +130,7 @@ h3 {
     padding: 15px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0 50px rgba(143, 24, 24, 0.05);
     margin-bottom: 50px;
 }
 

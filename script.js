@@ -1,4 +1,4 @@
-let serialNumber = 1; // Initialize the serial number
+let serialNumber = 1;
 
 function calculateGST() {
     const amount = parseFloat(document.getElementById('amount').value);
@@ -17,29 +17,37 @@ function calculateGST() {
         actualAmount = amount;
     }
 
-    // Display results without commas
-    document.getElementById('actualAmount').textContent = `Actual Amount: ₹${actualAmount.toFixed(2)}`;
-    document.getElementById('gstAmount').textContent = `GST Amount: ₹${gstAmount.toFixed(2)}`;
-    document.getElementById('totalAmount').textContent = `Total Amount: ₹${totalAmount.toFixed(2)}`;
+    document.getElementById('actualAmount').textContent = `Actual Amount: ₹${formatNumber(actualAmount.toFixed(2))}`;
+    document.getElementById('gstAmount').textContent = `GST Amount: ₹${formatNumber(gstAmount.toFixed(2))}`;
+    document.getElementById('totalAmount').textContent = `Total Amount: ₹${formatNumber(totalAmount.toFixed(2))}`;
 
-    // Add to history
-    addToHistory(serialNumber++, amount, gstType, taxType, gstAmount, totalAmount);
+    addToHistory(serialNumber++, amount, gstType, taxType, actualAmount, gstAmount, totalAmount);
 }
 
-function addToHistory(srNo, amount, gstType, taxType, gstAmount, totalAmount) {
+function addToHistory(srNo, amount, gstType, taxType, actualAmount, gstAmount, totalAmount) {
     const historyList = document.getElementById('historyList');
 
-    // Create a new row
     const row = document.createElement('tr');
     row.innerHTML = `
         <td>${srNo}</td>
-        <td>${amount.toFixed(2)}</td>
+        <td>${formatNumber(amount.toFixed(2))}</td>
         <td>${gstType}</td>
         <td>${taxType.charAt(0).toUpperCase() + taxType.slice(1)}</td>
-        <td>${gstAmount.toFixed(2)}</td>
-        <td>${totalAmount.toFixed(2)}</td>
+        <td>${formatNumber(actualAmount.toFixed(2))}</td>
+        <td>${formatNumber(gstAmount.toFixed(2))}</td>
+        <td>${formatNumber(totalAmount.toFixed(2))}</td>
     `;
 
-    // Add the row to the table
     historyList.appendChild(row);
+}
+
+function formatNumber(num) {
+    let [integer, decimal] = num.split('.');
+    let lastThree = integer.slice(-3);
+    let otherNumbers = integer.slice(0, -3);
+    if (otherNumbers !== '') {
+        lastThree = ',' + lastThree;
+    }
+    let formatted = otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree;
+    return decimal ? formatted + '.' + decimal : formatted;
 }

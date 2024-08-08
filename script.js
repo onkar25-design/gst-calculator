@@ -74,6 +74,19 @@ function deleteRow(button) {
     updateCookieHistory();
 }
 
+function deleteAllRows() {
+    const historyList = document.getElementById('historyList');
+    const confirmDelete = confirm("Are you sure you want to delete all history entries?");
+
+    if (confirmDelete) {
+        while (historyList.firstChild) {
+            historyList.removeChild(historyList.firstChild);
+        }
+        serialNumber = 1;
+        updateCookieHistory();
+    }
+}
+
 function updateSerialNumbers() {
     const rows = document.getElementById('historyList').getElementsByTagName('tr');
     for (let i = 0; i < rows.length; i++) {
@@ -111,7 +124,11 @@ function updateCookieHistory() {
         history.push(entry);
     }
 
-    document.cookie = `history=${JSON.stringify(history)}; path=/`;
+    if (history.length > 0) {
+        document.cookie = `history=${JSON.stringify(history)}; path=/`;
+    } else {
+        document.cookie = `history=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC;`; // Clear the history cookie
+    }
 }
 
 function loadHistoryFromCookie() {
@@ -127,5 +144,7 @@ function loadHistoryFromCookie() {
         });
     }
 }
+
+document.getElementById('deleteAllBtn').addEventListener('click', deleteAllRows);
 
 window.onload = loadHistoryFromCookie;

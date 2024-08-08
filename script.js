@@ -16,7 +16,7 @@ function calculateGST() {
 
     let gstAmount, totalAmount, actualAmount;
 
-    if (taxType === 'inclusive') {
+    if (taxType === 'With GST') {
         actualAmount = amount / (1 + (gstType / 100));
         gstAmount = amount - actualAmount;
         totalAmount = amount;

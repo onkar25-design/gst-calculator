@@ -294,3 +294,18 @@ h3 {
     outline: none;
     box-shadow: 0 0 0 3px rgba(0, 230, 73, 0.5);
 }
+
+.button-container{
+    display: inline-flex;
+}
+
+#deleteAllBtn{
+    padding: 10px 20px;
+    width: 100px;
+    margin: 10px;
+    margin-left: 76%;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History</title>
+    <link rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+    <div class="container">
+        <h1>History</h1>
+        <table id="historyTable">
+            <thead>
+                <tr>
+                    <th>Sr No</th>
+                    <th>Amount</th>
+                    <th>GST Type</th>
+                    <th>Tax Type</th>
+                    <th>Actual Amount</th>
+                    <th>GST Amount</th>
+                    <th>Total Amount</th>
+                </tr>
+            </thead>
+            <tbody id="historyList"></tbody>
+        </table>
+        <a href="index.html" class="back-link">Back to Calculator</a>
+    </div>
+    <script>
+        function loadHistoryFromCookie() {
+            const cookieValue = document.cookie
+                .split('; ')
+                .find(row => row.startsWith('history='))
+                ?.split('=')[1];
+
+            if (cookieValue) {
+                const history = JSON.parse(cookieValue);
+                const historyList = document.getElementById('historyList');
+
+                history.forEach(entry => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${entry.srNo}</td>
+                        <td>${entry.amount}</td>
+                        <td>${entry.gstType}</td>
+                        <td>${entry.taxType}</td>
+                        <td>${entry.actualAmount}</td>
+                        <td>${entry.gstAmount}</td>
+                        <td>${entry.totalAmount}</td>
+                    `;
+                    historyList.appendChild(row);
+                });
+            }
+        }
+
+        window.onload = loadHistoryFromCookie;
+    </script>
+</body>
+</html>

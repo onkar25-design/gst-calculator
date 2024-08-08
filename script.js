@@ -57,7 +57,6 @@ function addToHistory(srNo, amount, gstType, taxType, actualAmount, gstAmount, t
         <td>${formatNumber(gstAmount.toFixed(2))}</td>
         <td>${formatNumber(totalAmount.toFixed(2))}</td>
         <td><button onclick="deleteRow(this)">Delete</button></td>
-
     `;
 
     row.addEventListener('click', function() {
@@ -65,12 +64,14 @@ function addToHistory(srNo, amount, gstType, taxType, actualAmount, gstAmount, t
     });
 
     historyList.appendChild(row);
+    updateCookieHistory();
 }
 
 function deleteRow(button) {
     const row = button.parentNode.parentNode;
     row.parentNode.removeChild(row);
     updateSerialNumbers();
+    updateCookieHistory();
 }
 
 function updateSerialNumbers() {
@@ -91,3 +92,40 @@ function formatNumber(num) {
     let formatted = otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree;
     return decimal ? formatted + '.' + decimal : formatted;
 }
+
+function updateCookieHistory() {
+    const rows = document.getElementById('historyList').getElementsByTagName('tr');
+    const history = [];
+
+    for (let i = 0; i < rows.length; i++) {
+        const cells = rows[i].getElementsByTagName('td');
+        const entry = {
+            srNo: cells[0].textContent,
+            amount: cells[1].textContent,
+            gstType: cells[2].textContent,
+            taxType: cells[3].textContent,
+            actualAmount: cells[4].textContent,
+            gstAmount: cells[5].textContent,
+            totalAmount: cells[6].textContent
+        };
+        history.push(entry);
+    }
+
+    document.cookie = `history=${JSON.stringify(history)}; path=/`;
+}
+
+function loadHistoryFromCookie() {
+    const cookieValue = document.cookie
+        .split('; ')
+        .find(row => row.startsWith('history='))
+        ?.split('=')[1];
+
+    if (cookieValue) {
+        const history = JSON.parse(cookieValue);
+        history.forEach(entry => {
+            addToHistory(entry.srNo, parseFloat(entry.amount.replace(/,/g, '')), parseFloat(entry.gstType), entry.taxType.toLowerCase(), parseFloat(entry.actualAmount.replace(/,/g, '')), parseFloat(entry.gstAmount.replace(/,/g, '')), parseFloat(entry.totalAmount.replace(/,/g, '')));
+        });
+    }
+}
+
+window.onload = loadHistoryFromCookie;

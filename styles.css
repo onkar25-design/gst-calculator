@@ -58,6 +58,7 @@ button {
   border-radius: 5px;
   background-color: red;
   color: white;
+  
 
    
 }
@@ -73,7 +74,7 @@ button {
 }
 
 
-button:hover {
+.btn:hover {
     background-color: #218838;
 }
 
@@ -215,6 +216,26 @@ h3 {
     font-weight: bold;
 }
 
+.back-link {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color:#28a745 ;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.back-link:hover {
+    background-color: #005bb5;
+}
+
+.back-link:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 115, 230, 0.5);
+}
+
 @media (max-width: 600px) {
     .output {
         flex-direction: column;
@@ -232,4 +253,21 @@ h3 {
         overflow: visible;
         text-overflow: clip;
     }
+}
+
+.history-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #28a745 ;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+   
+}
+
+.history-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 230, 73, 0.5);
 }

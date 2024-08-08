@@ -16,19 +16,19 @@
                 <input type="number" class="form-control" id="amount" placeholder="Enter amount">
             </div>
             <div class="form">
+                <label for="taxType">Tax</label>
+                <select class="form-control" id="taxType">
+                    <option value="exclusive">Without GST</option>
+                    <option value="inclusive">With GST</option>
+                </select>
+            </div>
+            <div class="form">
                 <label for="gstType">GST Type</label>
                 <select class="form-control" id="gstType">
                     <option value="5">5%</option>
                     <option value="12">12%</option>
                     <option value="18">18%</option>
                     <option value="28">28%</option>
-                </select>
-            </div>
-            <div class="form">
-                <label for="taxType">Tax</label>
-                <select class="form-control" id="taxType">
-                    <option value="exclusive">Without GST</option>
-                    <option value="inclusive">With GST</option>
                 </select>
             </div>
             <button class="btn" onclick="calculateGST()">Calculate GST</button>
@@ -56,6 +56,9 @@
                         
                     </tbody>
                 </table>
+                <div class="button-container">
+                    <a href="history.html" class="history-button">View Full History</a>
+                </div>
             </div>
      </div>
        

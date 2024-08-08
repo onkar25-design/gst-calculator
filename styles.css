@@ -108,6 +108,17 @@ p {
     color: #333;
     font-family:Arial, Helvetica, sans-serif;
 }
+.note {
+    color: red;
+    font-weight: bold;
+    animation: blink 1s steps(5, start) infinite;
+}
+
+@keyframes blink {
+    to {
+        visibility: hidden;
+    }
+}
 
 .info-section {
     margin-top: 30px;
@@ -222,10 +233,14 @@ h3 {
     display: inline-block;
     margin-top: 20px;
     padding: 10px 20px;
-    background-color:#28a745 ;
+    background-color: #28a745;
     color: white;
     text-decoration: none;
     border-radius: 4px;
+    text-align: center;
+    font-size: 16px; 
+    font-weight: bold;
+
     
 }
 

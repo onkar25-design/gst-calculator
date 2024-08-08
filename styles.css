@@ -103,6 +103,7 @@ th {
     background-color: #28a745;
     color: white;
 }
+
 p {
     font-size: 16px;
     color: #333;
@@ -260,6 +261,20 @@ h3 {
         white-space: normal;
         overflow: visible;
         text-overflow: clip;
+    }
+    .gst-types {
+        display: flex;
+        flex-wrap:wrap;
+        gap: 20px;
+        flex-direction: column;
+    }
+    
+    .gst-type {
+        flex: 1 1 28%;
+        border: 1px solid #ccc;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
     }
 }
 

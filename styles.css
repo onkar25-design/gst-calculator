@@ -179,9 +179,11 @@ h3 {
 }
 
 .table-container {
-    max-width: 100%;
-    overflow-x: auto; 
-    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1200px;
+    overflow-x: auto;
 }
 
 .output {
@@ -224,16 +226,7 @@ h3 {
     color: white;
     text-decoration: none;
     border-radius: 4px;
-    transition: background-color 0.3s;
-}
-
-.back-link:hover {
-    background-color: #005bb5;
-}
-
-.back-link:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(0, 115, 230, 0.5);
+    
 }
 
 @media (max-width: 600px) {
